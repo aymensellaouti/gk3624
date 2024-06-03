@@ -1,0 +1,27 @@
+<p [hidden]="isHedden">first works!</p>
+<button (click)="showHide()" class="btn btn-danger">
+  show / hide
+</button>
+<input
+  #myInput
+  (change)="changeMessage(myInput.value)"
+  type="text"
+  class="form-control"
+>
+<p>{{ message }}</p>
+<div  class="alert alert-success">
+  <app-second/>
+</div>
+
+
+
+<!--
+  Dans le html on trouve :
+  balises  + text
+  par exemple img src l'image alt width height
+
+  attributs (state)
+
+  events (behaviour)
+
+ -->
