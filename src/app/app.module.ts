@@ -12,6 +12,10 @@ import { RotatingCardComponent } from './components/rotating-card/rotating-card.
 import { PereComponent } from './components/pere/pere.component';
 import { FilsComponent } from './components/fils/fils.component';
 import { SommeComponent } from './components/somme/somme.component';
+import { CvComponent } from './cv/cv/cv.component';
+import { ItemCvComponent } from './cv/item-cv/item-cv.component';
+import { ListCvComponent } from './cv/list-cv/list-cv.component';
+import { CvCardComponent } from './cv/cv-card/cv-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { SommeComponent } from './components/somme/somme.component';
     RotatingCardComponent,
     PereComponent,
     FilsComponent,
-    SommeComponent
+    SommeComponent,
+    CvComponent,
+    ItemCvComponent,
+    ListCvComponent,
+    CvCardComponent
   ],
   imports: [
     BrowserModule,

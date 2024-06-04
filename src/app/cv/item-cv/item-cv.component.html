@@ -1,0 +1,11 @@
+<div (click)="onSelectCv()">
+  <img
+    class="rounded-circle"
+    width="50"
+    height="50"
+    src="assets/images/{{ cv.path }}"
+    alt="{{ cv.name }}"
+  />
+
+  {{ cv.firstname }} {{ cv.name }}
+</div>
