@@ -3,7 +3,7 @@
     class="rounded-circle"
     width="50"
     height="50"
-    src="assets/images/{{ cv.path }}"
+    src="assets/images/{{ cv.path | defaultImage}}"
     alt="{{ cv.name }}"
   />
 
