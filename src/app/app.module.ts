@@ -18,6 +18,11 @@ import { ListCvComponent } from './cv/list-cv/list-cv.component';
 import { CvCardComponent } from './cv/cv-card/cv-card.component';
 import { IsEvenComponent } from './components/is-even/is-even.component';
 import { InputNumberComponent } from './components/input-number/input-number.component';
+import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
+import { MiniWordComponent } from './directives/mini-word/mini-word.component';
+import { LampeComponent } from './directives/lampe/lampe.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,12 @@ import { InputNumberComponent } from './components/input-number/input-number.com
     ListCvComponent,
     CvCardComponent,
     IsEvenComponent,
-    InputNumberComponent
+    InputNumberComponent,
+    NgstyleComponent,
+    MiniWordComponent,
+    LampeComponent,
+    HighlightDirective,
+    RainbowDirective
   ],
   imports: [
     BrowserModule,

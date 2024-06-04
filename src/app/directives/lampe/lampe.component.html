@@ -1,0 +1,14 @@
+<div
+  appRainbow
+  (click)="interrupteur()"
+  [ngClass]="{
+    'allume': isAllume,
+    'eteinte': !isAllume
+  }"
+  class="lampe">lampe </div>
+
+  <div appHighlight>test custom directive</div>
+  <div appHighlight [in]="'green'" [out]="'blue'">test custom directive</div>
+  <div appHighlight [in]="'pink'" [out]="'gold'">test custom directive</div>
+  <input type="text" appRainbow>
+  <input type="color" appRainbow>
