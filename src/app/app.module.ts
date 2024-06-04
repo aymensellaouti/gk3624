@@ -16,6 +16,8 @@ import { CvComponent } from './cv/cv/cv.component';
 import { ItemCvComponent } from './cv/item-cv/item-cv.component';
 import { ListCvComponent } from './cv/list-cv/list-cv.component';
 import { CvCardComponent } from './cv/cv-card/cv-card.component';
+import { IsEvenComponent } from './components/is-even/is-even.component';
+import { InputNumberComponent } from './components/input-number/input-number.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CvCardComponent } from './cv/cv-card/cv-card.component';
     CvComponent,
     ItemCvComponent,
     ListCvComponent,
-    CvCardComponent
+    CvCardComponent,
+    IsEvenComponent,
+    InputNumberComponent
   ],
   imports: [
     BrowserModule,
