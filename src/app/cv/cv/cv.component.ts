@@ -38,6 +38,14 @@ export class CvComponent {
       '12347',
       'dev',
       'rotating_card_profile.png'
+    ),new Cv(
+      4,
+      'sellaouti',
+      'aymen',
+      41,
+      '12347',
+      'dev',
+      'rotating_card_profile2.png'
     ),
   ];
 
