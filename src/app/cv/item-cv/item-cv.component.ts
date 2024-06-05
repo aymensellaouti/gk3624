@@ -11,7 +11,8 @@ export class ItemCvComponent {
     required: true
   })
   cv!: Cv;
-
+  @Input()
+  imageSize = 50;
   @Output()
   selectCv = new EventEmitter<Cv>();
 
