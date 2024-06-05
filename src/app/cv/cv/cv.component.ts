@@ -36,8 +36,8 @@ export class CvComponent {
     //   this.selectedCv = cv;
     // });
   }
-  getSelected(cv: Cv) {
-    this.selectedCv = cv;
-    this.todoService.logTodos();
-  }
+  // getSelected(cv: Cv) {
+  //   // this.selectedCv = cv;
+  //   this.todoService.logTodos();
+  // }
 }
