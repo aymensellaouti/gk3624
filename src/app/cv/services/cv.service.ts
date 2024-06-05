@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
   private cvs: Cv[] = [];
+  /**
+   *
+   * Il va informer toute personne inscrite par le click sur item cv
+   */
+  selectedCvSubject$ = new Subject<Cv>();
+  selectedCv$ = this.selectedCvSubject$.asObservable();
+  onSelectCv(cv: Cv) {
+    this.selectedCvSubject$.next(cv);
+  }
   constructor() {
     this.cvs = [
       new Cv(

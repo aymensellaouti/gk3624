@@ -38,6 +38,8 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './components/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
+import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
+import { SliderComponent } from './rxjs/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { LoginComponent } from './auth/login/login.component';
     DetailsCvComponent,
     NF404Component,
     TestFormComponent,
-    LoginComponent
+    LoginComponent,
+    TestObservableComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

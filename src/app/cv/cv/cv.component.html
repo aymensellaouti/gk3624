@@ -5,10 +5,10 @@
     <p>{{1 | btcToUsd : false }}</p>
   </div> -->
   <div class="col">
-    <app-list-cv (forwardCv)="getSelected($event)" [cvs]="cvs"/>
+    <app-list-cv [cvs]="cvs"/>
   </div>
   <div class="col">
-    <app-cv-card [cv]="selectedCv"/>
+    <app-cv-card [cv]="selectedCv$ | async"/>
   </div>
 </div>
 <app-embauche/>
