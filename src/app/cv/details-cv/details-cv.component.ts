@@ -19,10 +19,15 @@ export class DetailsCvComponent implements OnInit {
 
   ngOnInit() {
     const id = this.acr.snapshot.params['id'];
-    this.cv = this.cvService.getCvById(id);
-    if (!this.cv) {
-      this.router.navigate([APP_ROUTES.cv]);
-    }
+    // asynchrone c'est non bloquant c'est galant c'est symaps il laisse passer tout le monde
+    this.cvService.getCvById(id).subscribe({
+      next: (cv) => {
+        this.cv = cv;
+      },
+      error: (e) => {
+        this.router.navigate([APP_ROUTES.cv]);
+      }
+    });
   }
 
   delete() {

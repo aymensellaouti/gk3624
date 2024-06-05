@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Cv } from '../model/cv.model';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { APP_API } from 'src/app/config/api.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
   private cvs: Cv[] = [];
+  private http = inject(HttpClient);
   /**
    *
    * Il va informer toute personne inscrite par le click sur item cv
@@ -43,12 +46,22 @@ export class CvService {
 
   /**
    *
+   * Retourne Observbale d'un liste de cvs de l'API
+   *
+   * @returns CV[]
+   *
+   */
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(APP_API.cv);
+  }
+  /**
+   *
    * Retourne un liste de cvs
    *
    * @returns CV[]
    *
    */
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.cvs;
   }
 
@@ -57,10 +70,21 @@ export class CvService {
    * Retourne un cv via son id
    *
    * @param id : number, l'id du cv à sélectionner
+   * @returns Observable CV ou null si le cv n'est pas trouvé
+   *
+   */
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cv + id);
+  }
+  /**
+   *
+   * Retourne un cv via son id
+   *
+   * @param id : number, l'id du cv à sélectionner
    * @returns CV ou null si le cv n'est pas trouvé
    *
    */
-  getCvById(id: number): Cv | null {
+  fakeGetCvById(id: number): Cv | null {
     return this.cvs.find(c => c.id == id) ?? null;
   }
 

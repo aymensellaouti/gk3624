@@ -4,8 +4,8 @@
     <p>{{1 | btcToUsd | currency }}</p>
     <p>{{1 | btcToUsd : false }}</p>
   </div> -->
-  <div class="col">
-    <app-list-cv [cvs]="cvs"/>
+  <div class="col" *ngIf="cvs$ | async as cvsFromApi">
+    <app-list-cv [cvs]="cvsFromApi"/>
   </div>
   <div class="col">
     <app-cv-card [cv]="selectedCv$ | async"/>
