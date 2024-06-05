@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-color',
@@ -9,8 +10,10 @@ export class ColorComponent implements OnInit {
   @Input()
   defaultColor = 'gray';
   color = '';
+  acr = inject(ActivatedRoute);
   constructor() {}
   ngOnInit(): void {
+    this.defaultColor = this.acr.snapshot.params['defaultColor'];
     this.color = this.defaultColor;
   }
   changeColor(newColor: HTMLInputElement ) {
