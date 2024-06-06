@@ -4,6 +4,7 @@ import { CvService } from '../services/cv.service';
 import { filter, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { APP_ROUTES } from 'src/app/config/routes.config';
+import { uniqueCinValidator } from 'src/app/validators/unique-cin.validator';
 
 @Component({
   selector: 'app-add-cv',
@@ -31,7 +32,11 @@ export class AddCvComponent {
         ],
       },
     ],
-    cin: ['', { validators: [Validators.required, Validators.minLength(3)] }],
+    cin: ['', {
+      validators: [Validators.required, Validators.minLength(3)],
+      asyncValidators: [uniqueCinValidator(this.cvService)],
+      updateOn: 'blur'
+    }],
     path: ['', {}],
   });
   constructor() {
