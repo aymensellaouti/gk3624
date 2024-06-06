@@ -1,1 +1,15 @@
-<p>add-cv works!</p>
+<form [formGroup]="form">
+  <label for="nameInput">Name</label>
+  <input formControlName="name" type="text" class="form-control" id="nameInput">
+  <label for="firstNameInput">Firstname</label>
+  <input formControlName="firstname" type="text" class="form-control" id="firstNameInput">
+  <label for="jobInput">Job</label>
+  <input formControlName="job" type="text" class="form-control" id="jobInput">
+  <label for="cinInput">Cin</label>
+  <input formControlName="cin" type="text" class="form-control" id="cinInput">
+  <label for="ageInput">Age</label>
+  <input formControlName="age" type="number" class="form-control" id="ageInput">
+  <label for="pathInput">Path</label>
+  <input formControlName="path" type="text" class="form-control" id="pathInput">
+  <button [disabled]="form.invalid" class="btn btn-primary" (click)="addCv()">add </button>
+</form>

@@ -117,4 +117,8 @@ export class CvService {
 
     return this.http.delete<Cv>(APP_API.cv + id);
   }
+
+  addCv(cv: Cv): Observable<Cv> {
+    return this.http.post<Cv>(APP_API.cv,cv);
+  }
 }
