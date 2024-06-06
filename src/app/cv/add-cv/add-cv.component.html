@@ -7,6 +7,9 @@
   <input formControlName="job" type="text" class="form-control" id="jobInput">
   <label for="cinInput">Cin</label>
   <input formControlName="cin" type="text" class="form-control" id="cinInput">
+  <div class="alert alert-danger">
+    {{ cin?.errors | json }}
+  </div>
   <label for="ageInput">Age</label>
   <input formControlName="age" type="number" class="form-control" id="ageInput">
   <label for="pathInput">Path</label>
