@@ -5,6 +5,7 @@ import { CvService } from '../services/cv.service';
 import { APP_ROUTES } from 'src/app/config/routes.config';
 import { EMPTY, catchError, tap } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class DetailsCvComponent implements OnInit {
   cvService = inject(CvService);
   router = inject(Router);
   toast = inject(ToastrService);
+  authService = inject(AuthService);
   constructor() {}
 
   ngOnInit() {
