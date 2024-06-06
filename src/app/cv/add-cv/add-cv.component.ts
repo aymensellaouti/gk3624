@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CvService } from '../services/cv.service';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
@@ -41,5 +41,24 @@ export class AddCvComponent {
         this.router.navigate([APP_ROUTES.cv]);
       })
     ).subscribe();
+  }
+
+  get name() {
+    return this.form.get('name');
+  }
+  get firstname() {
+    return this.form.get('firstname');
+  }
+  get job() {
+     return this.form.get('job');
+  }
+  get path() {
+     return this.form.get('path');
+  }
+  get cin() {
+     return this.form.get('cin');
+  }
+  get age() {
+     return this.form.get('age');
   }
 }
