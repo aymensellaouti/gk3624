@@ -3,6 +3,8 @@ import { Cv } from '../model/cv.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CvService } from '../services/cv.service';
 import { APP_ROUTES } from 'src/app/config/routes.config';
+import { EMPTY, catchError, tap } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,6 +17,7 @@ export class DetailsCvComponent implements OnInit {
   acr = inject(ActivatedRoute);
   cvService = inject(CvService);
   router = inject(Router);
+  toast = inject(ToastrService);
   constructor() {}
 
   ngOnInit() {
@@ -26,14 +29,21 @@ export class DetailsCvComponent implements OnInit {
       },
       error: (e) => {
         this.router.navigate([APP_ROUTES.cv]);
-      }
+      },
     });
   }
 
   delete() {
     if (this.cv) {
-      this.cvService.deleteCv(this.cv);
-      this.router.navigate([APP_ROUTES.cv]);
+      this.cvService.deleteCvById(this.cv.id).pipe(
+        tap(() => {
+          this.router.navigate([APP_ROUTES.cv]);
+        }),
+        catchError(() => {
+          this.toast.error('Un problème a été détecté, veuillez contacter l admin');
+          return EMPTY;
+        })
+      ).subscribe();
     }
   }
 }

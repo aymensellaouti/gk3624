@@ -10,11 +10,13 @@ import { APP_ROUTES } from './config/routes.config';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent},
   { path: APP_ROUTES.login, component: LoginComponent},
   { path: APP_ROUTES.cv, component: CvComponent},
+  { path: APP_ROUTES.cv+'/add', component: AddCvComponent},
   { path: APP_ROUTES.cv+'/:id', component: DetailsCvComponent},
   { path: 'todo', component: TodoComponent},
   { path: 'word', component: MiniWordComponent},

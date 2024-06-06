@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { Observable, Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { APP_API } from 'src/app/config/api.config';
 
 @Injectable({
@@ -85,7 +85,7 @@ export class CvService {
    *
    */
   fakeGetCvById(id: number): Cv | null {
-    return this.cvs.find(c => c.id == id) ?? null;
+    return this.cvs.find((c) => c.id == id) ?? null;
   }
 
   /**
@@ -103,5 +103,18 @@ export class CvService {
       return true;
     }
     return false;
+  }
+
+  /**
+   *
+   * supprime un cv via son id
+   *
+   * @param id : number, l'id du cv à supprimer
+   * @returns Observable d'un objet informant sur le nombre de cv supprimé
+   */
+  deleteCvById(id: number): Observable<Cv> {
+    //const params = new HttpParams().set('access_token', localStorage.getItem('token') ?? '');
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token') ?? '');
+    return this.http.delete<Cv>(APP_API.cv + id, { headers });
   }
 }
