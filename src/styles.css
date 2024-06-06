@@ -4,3 +4,6 @@
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 @import 'assets/css/rotating-card.css';
 @import 'ngx-toastr/toastr';
+input.ng-invalid.ng-dirty {
+  border: solid 2px rgb(163, 4, 4);
+}

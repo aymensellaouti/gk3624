@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CvService } from '../services/cv.service';
-import { tap } from 'rxjs';
+import { filter, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { APP_ROUTES } from 'src/app/config/routes.config';
 
@@ -34,10 +34,30 @@ export class AddCvComponent {
     cin: ['', { validators: [Validators.required, Validators.minLength(3)] }],
     path: ['', {}],
   });
-
+  constructor() {
+    this.age?.valueChanges.subscribe((newAge) => {
+      if(newAge >= 18) {
+        this.path?.enable();
+      } else {
+        this.path?.disable();
+      }
+    });
+    this.form.statusChanges.pipe(
+      filter(() => this.form.valid),
+      tap(() => {
+        localStorage.setItem('addCvForm', JSON.stringify(this.form.value));
+      })
+    ).subscribe();
+    const savedForm = localStorage.getItem('addCvForm');
+    if (savedForm) {
+      this.form.setValue(JSON.parse(savedForm));
+    }
+  }
   addCv() {
     this.cvService.addCv(this.form.value).pipe(
       tap((cv) => {
+        // this.form.reset();
+        localStorage.removeItem('addCvForm');
         this.router.navigate([APP_ROUTES.cv]);
       })
     ).subscribe();
