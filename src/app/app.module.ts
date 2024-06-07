@@ -17,10 +17,6 @@ import { RotatingCardComponent } from './components/rotating-card/rotating-card.
 import { PereComponent } from './components/pere/pere.component';
 import { FilsComponent } from './components/fils/fils.component';
 import { SommeComponent } from './components/somme/somme.component';
-import { CvComponent } from './cv/cv/cv.component';
-import { ItemCvComponent } from './cv/item-cv/item-cv.component';
-import { ListCvComponent } from './cv/list-cv/list-cv.component';
-import { CvCardComponent } from './cv/cv-card/cv-card.component';
 import { IsEvenComponent } from './components/is-even/is-even.component';
 import { InputNumberComponent } from './components/input-number/input-number.component';
 import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
@@ -29,19 +25,16 @@ import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
-import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 
-import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './components/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
-import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
 import { TodoModule } from './todo/todo.module';
+import { CvModule } from './cv/cv.module';
 
 @NgModule({
   declarations: [
@@ -54,29 +47,19 @@ import { TodoModule } from './todo/todo.module';
     PereComponent,
     FilsComponent,
     SommeComponent,
-    CvComponent,
-    ItemCvComponent,
-    ListCvComponent,
-    CvCardComponent,
     IsEvenComponent,
     InputNumberComponent,
     NgstyleComponent,
     MiniWordComponent,
     LampeComponent,
-    EmbaucheComponent,
     NavbarComponent,
-    DetailsCvComponent,
     NF404Component,
     TestFormComponent,
     LoginComponent,
     TestObservableComponent,
     SliderComponent,
-    AddCvComponent,
-
     RainbowDirective,
     HighlightDirective,
-
-    DefaultImagePipe,
     BtcToUsdPipe,
     ],
   imports: [
@@ -86,6 +69,7 @@ import { TodoModule } from './todo/todo.module';
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
     ReactiveFormsModule,
+    CvModule,
     TodoModule,
     AppRoutingModule
   ],
