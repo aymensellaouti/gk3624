@@ -31,8 +31,6 @@ import { RainbowDirective } from './directives/rainbow.directive';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 
-import { TodoComponent } from './todo/todo/todo.component';
-import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
@@ -43,6 +41,7 @@ import { TestObservableComponent } from './rxjs/test-observable/test-observable.
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -64,12 +63,6 @@ import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
     NgstyleComponent,
     MiniWordComponent,
     LampeComponent,
-    HighlightDirective,
-    RainbowDirective,
-    BtcToUsdPipe,
-    DefaultImagePipe,
-    TodoComponent,
-    WeekTodoComponent,
     EmbaucheComponent,
     NavbarComponent,
     DetailsCvComponent,
@@ -79,15 +72,22 @@ import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
     TestObservableComponent,
     SliderComponent,
     AddCvComponent,
-  ],
+
+    RainbowDirective,
+    HighlightDirective,
+
+    DefaultImagePipe,
+    BtcToUsdPipe,
+    ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TodoModule,
+    AppRoutingModule
   ],
   providers: [authInterceptorProvider],
   bootstrap: [AppComponent],

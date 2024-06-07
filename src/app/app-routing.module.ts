@@ -23,10 +23,9 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   { path: APP_ROUTES.cv + '/:id', component: DetailsCvComponent },
-  { path: 'todo', component: TodoComponent },
   { path: 'word', component: MiniWordComponent },
   { path: 'color/:defaultColor', component: ColorComponent },
-  { path: ':quelqueChose', component: SecondComponent },
+  //{ path: ':quelqueChose', component: SecondComponent },
   { path: '**', component: NF404Component },
 ];
 
