@@ -33,14 +33,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
-import { TodoModule } from './todo/todo.module';
-import { CvModule } from './cv/cv.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent,
     ColorComponent,
     TwoWayComponent,
     RotatingCardComponent,
@@ -61,17 +59,16 @@ import { CvModule } from './cv/cv.module';
     RainbowDirective,
     HighlightDirective,
     BtcToUsdPipe,
-    ],
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
+    // SecondComponent,
     ReactiveFormsModule,
-    CvModule,
-    TodoModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [authInterceptorProvider],
   bootstrap: [AppComponent],

@@ -16,7 +16,6 @@ export class CvComponent {
   cvService = inject(CvService);
   loggerService = inject(LoggerService);
   sayHello = inject(SayHelloService);
-  todoService = inject(TodoService);
   toastr = inject(ToastrService);
   today = new Date();
   selectedCv$: Observable<Cv>;
